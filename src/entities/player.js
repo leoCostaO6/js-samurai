@@ -1,3 +1,4 @@
+import { CANVAS_WIDTH } from "../constants.js"
 import { keyboard } from "../input/keyboard.js"
 
 export class Player{
@@ -11,7 +12,6 @@ export class Player{
         this.y = y
         this.width = width
         this.height = height
-    
     }
 
     draw(ctx){
@@ -31,6 +31,14 @@ export class Player{
         const right = keyboard.isPressed('d') ? 1 :0;
         const hSpeeed = (right - left) * this.speed
         this.x += hSpeeed
+        const widthLimit = CANVAS_WIDTH - this.width;
+
+        if(this.x >= widthLimit){
+            this.x = widthLimit;
+        }
+        if(this.x < 0){
+            this.x = 0;
+        }
     }
 
 }

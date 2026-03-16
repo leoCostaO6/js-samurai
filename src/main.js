@@ -4,7 +4,7 @@ const canvas = document.getElementById('game')
 const ctx = canvas.getContext('2d')
 
 const entities = []
-const p1 = new Player(10, 10, 100, 100)
+const p1 = new Player(300, 500, 100, 100)
 entities.push(p1)
 
 function boot(){
